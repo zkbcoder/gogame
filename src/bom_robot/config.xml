@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+<!-- 123.59.60.79:9320-->
+	<Addr>123.59.60.79:9320</Addr>
+	<NumBySec>1</NumBySec>
+	<Loop>1</Loop>
+	<AccountBase>zkb</AccountBase>
+	<Password>12345678</Password>
+	<ServerName>哈哈哈</ServerName>
+</Config>
