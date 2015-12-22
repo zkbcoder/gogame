@@ -16,7 +16,7 @@ func (this *HandleResult) Init() {
 	network.MsgFactoryMgr.Register(21099, this)
 }
 
-func (this *HandleResult) MsgCallBack(client *network.ClientNet, msg network.IMsg) {
+func (this *HandleResult) MsgCallBack(client *network.NetConn, msg network.IMsg) {
 
 }
 

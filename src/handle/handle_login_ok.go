@@ -18,11 +18,13 @@ func (this *HandleLoginOk) Init() {
 	network.MsgFactoryMgr.Register(21200, this)
 }
 
-func (this *HandleLoginOk) MsgCallBack(client *network.ClientNet, msg network.IMsg) {
+func (this *HandleLoginOk) MsgCallBack(conn *network.NetConn, msg network.IMsg) {
 	end := time.Now()
-	result := end.Sub(client.StartTime).Nanoseconds() / 1000000
-	fmt.Println(client.RoleName, " LoginTime =", result)
-	client.Log.Info("info=%s%s%d", client.RoleName, " LoginTime =", result)
+	if client, ok := conn.Child.(network.ClientNet); ok {
+		result := end.Sub(client.StartTime).Nanoseconds() / 1000000
+		fmt.Println(client.RoleName, " LoginTime =", result)
+		client.Log.Info("info=%s%s%d", client.RoleName, " LoginTime =", result)
+	}
 }
 
 var HandleLoginOkIst HandleLoginOk

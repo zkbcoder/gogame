@@ -16,7 +16,7 @@ func (this *HandleHitMessage) Init() {
 	network.MsgFactoryMgr.Register(21402, this)
 }
 
-func (this *HandleHitMessage) MsgCallBack(client *network.ClientNet, iMsg network.IMsg) {
+func (this *HandleHitMessage) MsgCallBack(client *network.NetConn, iMsg network.IMsg) {
 
 }
 

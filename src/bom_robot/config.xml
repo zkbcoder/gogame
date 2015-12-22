@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
 <!-- 123.59.60.79:9320-->
-	<Addr>123.59.60.79:9320</Addr>
+	<Addr>127.0.0.1:9988</Addr>
 	<NumBySec>1</NumBySec>
 	<Loop>1</Loop>
 	<AccountBase>zkb</AccountBase>

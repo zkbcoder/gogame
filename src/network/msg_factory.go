@@ -5,7 +5,8 @@ type FunCreateMsg func() IMsg
 
 type IHandle interface {
 	NewMsg() IMsg
-	MsgCallBack(client *ClientNet, iMsg IMsg)
+	MsgCallBack(client *NetConn, iMsg IMsg)
+	// MsgCallBack(client *ClientNet, iMsg IMsg)
 }
 
 type MsgFactory struct {
@@ -20,7 +21,14 @@ func (this MsgFactory) GetMsg(msgId uint16) IMsg {
 	return nil
 }
 
-func (this MsgFactory) CallBack(msgId uint16, client *ClientNet, msg IMsg) {
+//func (this MsgFactory) CallBack(msgId uint16, client *ClientNet, msg IMsg) {
+//	hd := this.AllMsg[msgId]
+//	if nil != hd {
+//		hd.MsgCallBack(client, msg)
+//	}
+//}
+
+func (this MsgFactory) CallBack(msgId uint16, client *NetConn, msg IMsg) {
 	hd := this.AllMsg[msgId]
 	if nil != hd {
 		hd.MsgCallBack(client, msg)

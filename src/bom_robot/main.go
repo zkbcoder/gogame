@@ -55,6 +55,7 @@ func main() {
 	for i := 0; i < config.Loop; i++ {
 		for j := 0; j < config.NumBySec; j++ {
 			var client network.ClientNet
+			client.Child = client
 			client.StartTime = time.Now()
 			client.Log = log
 			account := fmt.Sprintf("%s%d", config.AccountBase, (i+1)*10000+j) // "kb2014002"
@@ -62,7 +63,7 @@ func main() {
 			log.Info("Begin Time=%s Name=%s", client.StartTime.String(), account)
 
 			client.ServerAddr = config.Addr //"192.168.208.175:9987"
-			client.Run()
+			client.ClientRun(config.Addr)
 
 			// 请求服务器列表
 			password := config.Password     //"1234567890"

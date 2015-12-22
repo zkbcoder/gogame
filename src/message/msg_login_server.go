@@ -2,6 +2,7 @@ package message
 
 import (
 	"bytes"
+	"fmt"
 	"network"
 )
 
@@ -22,6 +23,7 @@ func (msg *MsgLoginServer) Packet() *bytes.Buffer {
 	network.AppendString(outbuff, msg.Account)
 	network.AppendString(outbuff, msg.Password)
 	network.AppendString(outbuff, msg.ServerName)
+	fmt.Println(outbuff.Bytes())
 	return outbuff
 }
 

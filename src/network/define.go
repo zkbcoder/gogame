@@ -20,7 +20,7 @@ type MsgHead struct {
 
 type IMsg interface {
 	Packet() *bytes.Buffer
-	UnPacket(buf []byte) // 有待改进
+	UnPacket(buf []byte) // 有待改进[接口分离，单一接口!]
 }
 
 // 打包基本类型，除了string

@@ -11,6 +11,7 @@ type HandleServerInfo struct {
 	AccountId uint32
 	Timesec   uint32
 	Channelid int32
+	Ip        string
 }
 
 func (this HandleServerInfo) NewMsg() network.IMsg {
@@ -24,7 +25,7 @@ func (this *HandleServerInfo) Init() {
 func (this *HandleServerInfo) Reconect(client *network.ClientNet) {
 	time.Sleep(1 * 10)
 	// 重新链接
-	client.Run()
+	client.ClientRun(this.Ip)
 	// 角色登录 1004
 	//	serverName := "哈哈哈"
 	// 注册 1003
@@ -33,18 +34,20 @@ func (this *HandleServerInfo) Reconect(client *network.ClientNet) {
 	client.SendMsg(&msg)
 }
 
-func (this *HandleServerInfo) MsgCallBack(client *network.ClientNet, iMsg network.IMsg) {
-	client.Close()
-
+func (this *HandleServerInfo) MsgCallBack(conn *network.NetConn, iMsg network.IMsg) {
 	// reconnect
-	if a, ok := iMsg.(*message.MsgServerInfo); ok {
-		a.Ip = a.Ip + fmt.Sprintf(":%d", a.Port)
-		client.ServerAddr = a.Ip
-		this.Channelid = a.Channelid
-		this.AccountId = a.AccountId
-		this.Timesec = a.Timesec
+	if client, ok := conn.Child.(*network.ClientNet); ok {
+		client.Close()
+		if a, ok := iMsg.(*message.MsgServerInfo); ok {
+			a.Ip = a.Ip + fmt.Sprintf(":%d", a.Port)
+			client.ServerAddr = a.Ip
+			this.Ip = a.Ip
+			this.Channelid = a.Channelid
+			this.AccountId = a.AccountId
+			this.Timesec = a.Timesec
+		}
+		go this.Reconect(client)
 	}
-	go this.Reconect(client)
 }
 
 var HandleServerInfoIst HandleServerInfo
