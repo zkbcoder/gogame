@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"sync"
 )
-
+// testing add by zkb
 // 开启http服务
 func StartHttp(addr string /*, ch chan def.MsgChan*/) {
 	fmt.Println("StartHttp!!", addr)
@@ -27,7 +27,7 @@ func StartHttp(addr string /*, ch chan def.MsgChan*/) {
 func actionHandle(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("Action Handle!")
 
-	//	ret := define.HttpReturn{1, "UnKnown Error"} // 返回结果
+	//	ret := define.HttpReturn{1, "UnKnown Error"} // 返
 	// read body
 	data := make([]byte, 1024*1024)
 	n, _ := req.Body.Read(data)
