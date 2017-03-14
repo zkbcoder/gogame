@@ -8,6 +8,7 @@ import (
 	"sync"
 )
 
+// 我也改  
 // 开启http服务
 func StartHttp(addr string /*, ch chan def.MsgChan*/) {
 	fmt.Println("StartHttp!!", addr)
