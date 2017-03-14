@@ -28,7 +28,7 @@ func StartHttp(addr string /*, ch chan def.MsgChan*/) {
 func actionHandle(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("Action Handle!")
 
-	//	ret := define.HttpReturn{1, "UnKnown Error"} // 返回结果
+	//	ret := define.HttpReturn{1, "UnKnown Error"} // 返
 	// read body
 	data := make([]byte, 1024*1024)
 	n, _ := req.Body.Read(data)
