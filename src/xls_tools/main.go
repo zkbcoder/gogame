@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"os"
 	"strings"
-	"xls_tools/tb"
 
 	"github.com/tealeg/xlsx"
 )
@@ -50,11 +49,7 @@ func main() {
 			}
 			defer file.Close()
 
-			file.Write([]byte("{")) // json开头
-			hero := tb.Create(strXlsxName)
-			fmt.Println(strXlsxName, sheet.Name, sheet)
-			fmt.Println(hero)
-
+			file.Write([]byte("{"))  // json开头
 			fields := []string{}     // 字段名字
 			fieldTypes := []string{} // 字段类型
 			exStrs := []string{}     // 额外字符串[拼json用]
@@ -96,8 +91,6 @@ func main() {
 					fmt.Println("init exStrs!!")
 					continue
 				}
-
-				//	"1" : {"Id":1,"Name":"刀男","Type":"攻击者","Desc":"一个被诅咒的铁匠。他碰到的一切都会分崩离析。他梦想成为高贵的骑士，但是永远不可能。","Hp":"1K","Dmg":"100","Hit":"800","Dodge":"0","Critical":"300","CriticalResist":"0","CriticalDmg":"500","Skill1":0,"Skill2":0,"Skill3":0,"Skill4":0,"Skill5":0,"Skill6":0,"Skill7":0,"Skill8":0,"Skill9":0,"Skill10":0,"Skill11":0,"Resource":"r_1","RqInstanceStage":0},
 
 				key, _ := row.Cells[0].Int() // 做为索引
 				for i := 0; i < len(row.Cells); i++ {
