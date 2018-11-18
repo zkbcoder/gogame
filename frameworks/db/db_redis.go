@@ -2,7 +2,7 @@ package db
 
 import (
 	"fmt"
-	"frameworks/util"
+	"github.com/zkbcoder/gogame/frameworks/util"
 	"time"
 
 	"github.com/garyburd/redigo/redis"

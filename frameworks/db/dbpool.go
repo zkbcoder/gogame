@@ -2,7 +2,7 @@ package db
 
 import (
 	"fmt"
-	"frameworks/util"
+	"github.com/zkbcoder/gogame/frameworks/util"
 	"sync"
 
 	"github.com/ziutek/mymysql/mysql"

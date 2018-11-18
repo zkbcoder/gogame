@@ -1,7 +1,7 @@
 package timetools
 
 import (
-	"frameworks/util"
+	"github.com/zkbcoder/gogame/frameworks/util"
 	"time"
 )
 

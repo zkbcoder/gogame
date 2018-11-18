@@ -2,7 +2,7 @@ package timetools
 
 import (
 	"fmt"
-	"frameworks/util"
+	"github.com/zkbcoder/gogame/frameworks/util"
 	"testing"
 	"time"
 )
