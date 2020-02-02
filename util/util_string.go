@@ -111,3 +111,40 @@ func Str2BigNum(str string) *BigNum {
 	}
 	return &bigNum
 }
+
+
+//  int数组转字符串
+func SilceIntToString(sil []int) (ret string) {
+	ret = ""
+	for i := 0; i < len(sil); i++ {
+		if i >= 1 {
+			ret += "_"
+		}
+		ret += fmt.Sprintf("%d", sil[i])
+	}
+	return
+}
+
+// 字符串转int数组
+func StringToSilceInt(str string) (sil []int) {
+	sil = make([]int, 0)
+	if str == "" {
+		return
+	}
+	strs := strings.Split(str, "_")
+	for i := 0; i < len(strs); i++ {
+		num, _ := strconv.Atoi(strs[i])
+		sil = append(sil, num)
+	}
+	return
+}
+
+// 字符串转string数组
+func StringToSilce(str string) (sil []string) {
+	sil = make([]string, 0)
+	if str == "" {
+		return
+	}
+	sil = strings.Split(str, "_")
+	return
+}

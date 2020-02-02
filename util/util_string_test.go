@@ -9,6 +9,12 @@ import (
 	"strings"
 )
 
+func TestStrToSlice(t *testing.T) {
+	str := "aaa_bbb_ccc"
+	sli := StringToSilce(str)
+	fmt.Println(sli)
+}
+
 func TestStrToInt64(t *testing.T) {
 	iVal64 := int64(10987654321234)
 	tVal64, _ := StrToInt64(string("10987654321234"))
